@@ -1,54 +1,51 @@
 ---
-- name: install wordpress
-  become: yes
-  become_method: sudo
-  gather_facts: no
-  ignore_errors: true
-  hosts: localhost
-  connection: ssh
-  tasks:
-    - name: Install neccessary packages
-      package:
-        name: "{{item}}"
-        state: latest
-      with_items:
-        - httpd
-        - mysql
-        - mariadb-server
-        - wget
-        - unzip
-        - php70
-        - php70-mysql
-        - php70-gd
-      ignore_errors: true
-    - name: download 1 package
-      get_url:
-        url: "https://wordpress.org/latest.tar.gz"
-        dest: /tmp/
-    - name: unzip wordpress file
-      unarchive:
-        src: "/tmp/wordpress-5.2.1.tar.gz"
-        dest: /var/www/html/
-        remote_src: yes
-      become: yes
-      become_method: sudo
+ - name : mylove
+   hosts: localhost
+   become : yes
+   become_method : sudo
+   tasks:
+     - name : Install necessary packages
+       package:
+         name : "{{item}}"
+         state: latest
+       with_items:
+          - wget
+          - unzip
+          - httpd
+          - php
+          - php-gd
+          - mysql
+          - mariadb-server
+          - php-mysql
+          - php-fpm
+       ignore_errors: true
+     - name : PHP-UPDATE
+       shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
 
-    - name: Move files to html folder
-      shell: mv /var/www/html/wordpress/* /var/www/html
-      become: yes
-      become_method: sudo
-      ignore_errors: yes
+     - name: Download wordpress package
+       get_url:
+          url: "https://wordpress.org/latest.tar.gz"
+          dest: /tmp/
 
-    - name: restart httpd
-      systemd:
-        name: httpd
-        state: started
-        enabled: true
-      become: yes
-      become_method: sudo
-    - name: Put SELinux in permissive mode, logging actions that would be blocked.
-      selinux:
-        policy: targeted
-        state: permissive
-    - name: epel-release
-      yum: name=epel-release state=installed
+     - name : Unzip wordpress file
+       unarchive:
+         src: "/tmp/wordpress-5.2.1.tar.gz"
+         dest: "/var/www/html/"
+         remote_src: yes
+       become: yes
+       become_method: sudo
+
+     - name :  files to html
+       shell: "mv /var/www/html/wordpress/*  /var/www/html/"
+       become: yes
+       become_method: sudo
+       ignore_errors: yes
+
+
+     - name: restart httpd
+       systemd:
+         name: httpd
+         state: restarted
+         enabled: yes
+       become: yes
+       become_method: sudo
