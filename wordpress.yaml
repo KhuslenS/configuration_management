@@ -55,7 +55,8 @@
     creates=/etc/yum.repos.d/remi.repo
 
     - name: install php70
-      yum: name={{item}} enablerepo=epel,remi,remi-php70 state=installed
+      package:
+      name: {{item}} enablerepo=epel,remi,remi-php70 state=installed
       with_items:
        - php70
        - php70-php-mycrypt
