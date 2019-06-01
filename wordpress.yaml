@@ -1,7 +1,7 @@
 ---
 - name: install wordpress
   become: yes
-  become_method: sudo 
+  become_method: sudo
   gather_facts: no
   ignore_errors: true
   hosts: web
@@ -21,6 +21,7 @@
         - php-fpm
         - wget
         - unzip
+        - APACHERESTART7
       ignore_errors: true
     - name: download 1 package
       get_url:
@@ -47,3 +48,9 @@
        enabled: true
      become: yes
      become_method: sudo
+    - name: APACHERESTART7
+      when: ( ansible_disribution == "CentOS" ansible_distribution_major_version == "7" )
+      systemd:
+        name : httpd
+        state: restarted
+      ignore_errors: true
