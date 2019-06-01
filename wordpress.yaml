@@ -17,6 +17,9 @@
         - mariadb-server
         - wget
         - unzip
+        - php70
+        - php70-mysql
+        - php70-gd
       ignore_errors: true
     - name: download 1 package
       get_url:
@@ -53,15 +56,3 @@
     - name: add repository 'remi-repo'
       command: rpm -ih http://rpms.famillecollet.com/enterprise/remi-release-7.rmp
     creates=/etc/yum.repos.d/remi.repo
-
-    - name: install php70
-      package:
-      name: {{item}} enablerepo=epel,remi,remi-php70 state=installed
-      with_items:
-       - php70
-       - php70-php-mycrypt
-       - php70-php-mbstring
-       - php70-php-fpm
-       - php70-php-gd
-       - php70-php-xml
-       - php70-php-pdo
