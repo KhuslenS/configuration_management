@@ -27,7 +27,7 @@
       get_url:
         url: "https://wordpress.org/latest.tar.gz"
         dest: /tmp/
-    -name: unzip wordpress file
+    - name: unzip wordpress file
      unarchive:
        src: "/tmp/wordpress-5.2.1.tar.gz"
        dest: /var/www/html/
@@ -35,19 +35,19 @@
      become: yes
      become_method: sudo
 
-    -name: Move files to html folder
-     shell: mv /var/www/html/wordpress/* /var/www/html
-     become: yes
-     become_method: sudo
-     ignore_errors: yes
+    - name: Move files to html folder
+      shell: mv /var/www/html/wordpress/* /var/www/html
+      become: yes
+      become_method: sudo
+      ignore_errors: yes
 
-    -name: restart httpd
-     systemd:
-       name: httpd
-       state: started
-       enabled: true
-     become: yes
-     become_method: sudo
+    - name: restart httpd
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+      become: yes
+      become_method: sudo
     - name: APACHERESTART7
       when: ( ansible_disribution == "CentOS" ansible_distribution_major_version == "7" )
       systemd:
