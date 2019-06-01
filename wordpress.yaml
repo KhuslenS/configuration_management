@@ -1,6 +1,6 @@
 ---
  - name : mylove
-   hosts: localhost
+   hosts: cyberkkk
    become : yes
    become_method : sudo
    tasks:
