@@ -4,7 +4,7 @@
   become_method: sudo
   gather_facts: no
   ignore_errors: true
-  hosts: web
+  hosts: localhost
   connection: ssh
   tasks:
     - name: Install neccessary packages
