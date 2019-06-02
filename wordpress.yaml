@@ -1,8 +1,8 @@
 ---
- - name : mylove
-   hosts: cyberkkk
-   become : yes
-   become_method : sudo
+ - name: Installs wordpress
+   hosts: web_server
+   become: yes
+   become_method: sudo
    tasks:
      - name: Install necessary packages
        package:
@@ -19,7 +19,7 @@
           - php-mysql
           - php-fpm
        ignore_errors: true
-     - name: PHP-UPDATE
+     - name: New shell for updated php
        shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
 
      - name: Download wordpress package
@@ -27,7 +27,7 @@
           url: "https://wordpress.org/latest.tar.gz"
           dest: /tmp/
 
-     - name : Unzip wordpress file
+     - name: Unzip wordpress file
        unarchive:
          src: "/tmp/wordpress-5.2.1.tar.gz"
          dest: "/var/www/html/"
@@ -35,7 +35,7 @@
        become: yes
        become_method: sudo
 
-     - name :  files to html
+     - name:  Move files to html folder
        shell: "mv /var/www/html/wordpress/*  /var/www/html/"
        become: yes
        become_method: sudo
@@ -49,3 +49,28 @@
          enabled: yes
        become: yes
        become_method: sudo
+     - name: install remi and epel repo from remote
+       yum:
+         name:
+         - "{{ remi_release_url }}"
+         - "{{ epel_release_url }}"
+       become: true
+
+     - name: get remi key
+       get_url:
+       - url: "{{ remi_key_url }}"
+       - dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+       become: true
+     - name: install php7 packages
+       yum:
+          name:
+          - php
+          - nginx
+          - php-fpm
+          - php-mysql
+          - php-pdo
+          - php-mbstring
+          - php-xml
+          - php-gd
+          enablerepo: "remi-{{ php_version }},epel"
+       become: true
