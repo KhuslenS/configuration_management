@@ -1,6 +1,6 @@
 ---
  - name: Installs wordpress
-   hosts: web_server
+   hosts: cyberkkk
    become: yes
    become_method: sudo
    tasks:
@@ -12,16 +12,8 @@
           - wget
           - unzip
           - httpd
-          - php
-          - php-gd
           - mysql
           - mariadb-server
-          - php-mysql
-          - php-fpm
-       ignore_errors: true
-     - name: New shell for updated php
-       shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
-
      - name: Download wordpress package
        get_url:
           url: "https://wordpress.org/latest.tar.gz"
