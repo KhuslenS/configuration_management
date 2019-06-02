@@ -47,12 +47,6 @@
          - "{{ remi_release_url }}"
          - "{{ epel_release_url }}"
        become: true
-
-     - name: get remi key
-       get_url:
-       - url: "{{ remi_key_url }}"
-       - dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
-       become: true
      - name: install php7 packages
        yum:
           name:
