@@ -4,10 +4,9 @@
   tasks:
     - name: Create instances 
       ec2:
-        key_name: mykey
-        instance_type: t2.micro
-        image: ami-123456
-        group: webserver
+        key_name: "{{pairing_key}}"
+        instance_type: "{{instance_type}}"
+        image: "{{image_of_instance}}"
         count: 3
-        vpc_subnet_id: subnet-29e63245
-        
+        vpc_subnet_id: "{{subnet}}"
+        region: "{{region}}"
