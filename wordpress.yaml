@@ -4,9 +4,9 @@
    become : yes
    become_method : sudo
    tasks:
-     - name : Install necessary packages
+     - name: Install necessary packages
        package:
-         name : "{{item}}"
+         name: "{{item}}"
          state: latest
        with_items:
           - wget
