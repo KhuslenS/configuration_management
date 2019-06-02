@@ -19,7 +19,7 @@
           - php-mysql
           - php-fpm
        ignore_errors: true
-     - name : PHP-UPDATE
+     - name: PHP-UPDATE
        shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
 
      - name: Download wordpress package
