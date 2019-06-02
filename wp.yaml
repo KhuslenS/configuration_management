@@ -12,15 +12,36 @@
           - wget
           - unzip
           - httpd
-          - php
-          - php-gd
           - mysql
           - mariadb-server
-          - php-mysql
-          - php-fpm
+
+
        ignore_errors: true
-     - name : New shell for updated php
-       shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
+     - name: install remi and epel repo from remote
+       yum:
+         name:
+         - "{{ remi_release_url }}"
+         - "{{ epel_release_url }}"
+       become: true
+
+      - name: get remi key
+        get_url:
+        - url: "{{ remi_key_url }}"
+        - dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+        become: true
+      - name: install php7 packages
+        yum:
+          name:
+          - php
+          - nginx
+          - php-fpm
+          - php-mysql
+          - php-pdo
+          - php-mbstring
+          - php-xml
+          - php-gd
+          enablerepo: "remi-{{ php_version }},epel"
+       become: true
 
      - name: Download wordpress package
        get_url:
