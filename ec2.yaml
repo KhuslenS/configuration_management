@@ -1,8 +1,6 @@
 --- 
 - name: Creates ec2 instances 
   hosts: localhost
-  become: yes
-  become_method: sudo
   tasks:
     - name: Create instance (Ubuntu) 
       ec2:
