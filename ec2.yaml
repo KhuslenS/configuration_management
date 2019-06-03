@@ -1,12 +1,24 @@
 --- 
 - name: Creates ec2 instances 
-  hosts: localhost
+  hosts: cyberkkk
+  become: yes
+  become_method: sudo
   tasks:
-    - name: Create instances 
+    - name: Create instance (Ubuntu) 
       ec2:
-        key_name: "{{pairing_key}}"
-        instance_type: "{{instance_type}}"
-        image: "{{image_of_instance}}"
-        count: 3
-        vpc_subnet_id: "{{subnet}}"
-        region: "{{region}}"
+        key_name: Ansible-Tower
+        instance_type: t2.micro
+        image: ami-005bdb005fb00e791
+        count: 1
+        vpc_subnet_id: subnet-929b8ec8
+        region: us-west-2
+        assign_public_ip: yes
+    - name: create instance (Debian)
+      ec2:
+        key_name: Ansible-Tower
+        instance_type: t2.micro
+        image: ami-070fdf86f8679add0
+        count: 1
+        vpc_subnet_id: subnet-929b8ec8
+        region: us-west-2
+        assign_public_ip: yes
