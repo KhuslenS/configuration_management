@@ -8,5 +8,5 @@
         state: latest
       become: yes
       become_method: auto
-    #- name: Restart the system
-    #  reboot: 
+    - name: Restart the system
+      reboot: 
