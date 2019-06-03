@@ -1,6 +1,6 @@
 --- 
 - name: Creates ec2 instances 
-  hosts: cyberkkk
+  hosts: localhost
   become: yes
   become_method: sudo
   tasks:
