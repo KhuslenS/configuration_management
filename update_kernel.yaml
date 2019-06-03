@@ -7,6 +7,6 @@
         name: kernel
         state: latest
       become: yes
-      become_method: auto
+      become_method: sudo
     #- name: Restart the system
     #  reboot: 
