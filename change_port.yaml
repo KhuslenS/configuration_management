@@ -1,0 +1,13 @@
+---
+- name: Change the port number for remote servers
+  hosts: "{{hosts}}"
+  tasks:
+    - name: Change the default port number
+      lineinfile: dest=/etc/ssh/sshd_config
+                  regexp="#Port 22"
+                  line="Port 2222"
+                  state=present
+    - name: Restart SSHD
+      service:
+        name: "sshd"
+        state: restarted
