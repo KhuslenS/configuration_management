@@ -27,6 +27,23 @@
         systemd: 
            name: sbm-agent
            state: restarted
+        
+      - name: R1SOFT_INSTALLED_ON_CENTOS6
+        service: 
+           name: sdp-agent
+           state: restarted
+
+      
+      - name: R1SOFT_INSTALLED_ON_Fedora
+        systemd: 
+           name: sbm-agent
+           state: restarted
+
+        
+      - name: R1SOFT_INSTALLED_ON_centos8
+        systemd: 
+           name: sbm-agent
+           state: restarted
 
       
 # this line is for centos 6    
@@ -40,6 +57,7 @@
           package: 
             name: serverbackup-enterprise-agent
             state: latest
+          notify: r1soft_INSTALLED
 
         - name: start agent
           service: 
@@ -49,6 +67,7 @@
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
         when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+    
 
 # this line is for Fedora    
       - block:
@@ -61,6 +80,7 @@
           package: 
             name: serverbackup-enterprise-agent
             state: latest
+          notify: r1soft_INSTALLED
 
         - name: start agent
           service: 
@@ -70,6 +90,7 @@
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
         when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "28"
+        
 
 # this line is for centos 8   
       - block:
@@ -82,6 +103,7 @@
           package: 
             name: serverbackup-enterprise-agent
             state: latest
+          notify: r1soft_INSTALLED
 
         - name: start agent
           systemd: 
