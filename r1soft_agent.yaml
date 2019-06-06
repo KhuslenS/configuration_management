@@ -46,3 +46,24 @@
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
         when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+
+# this line is for Fedora    
+      - block:
+        - name: create r1soft
+          copy: 
+            src: r1soft.repo
+            dest: /etc/yum.repos.d/r1soft.repo
+
+        - name: Install r1soft agent
+          package: 
+            name: serverbackup-enterprise-agent
+            state: latest
+
+        - name: start agent
+          service: 
+            name: cdp-agent
+            state: restarted
+      
+        - name: get key
+          shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
+        when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "28"
