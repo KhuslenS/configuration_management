@@ -4,8 +4,9 @@
     become: yes
     become_method: sudo
     tasks:
-      - block:
-        
+      
+#this line is for centos 7
+      - block:  
         - name: create r1soft
           copy: 
             src: r1soft.repo
@@ -23,4 +24,25 @@
       
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
-        when: ansible_distribution == "CentOS"
+        when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+      
+# this line is for centos 6    
+      - block:
+        - name: create r1soft
+          copy: 
+            src: r1soft.repo
+            dest: /etc/yum.repos.d/r1soft.repo
+
+        - name: Install r1soft agent
+          package: 
+            name: serverbackup-enterprise-agent
+            state: latest
+
+        - name: start agent
+          service: 
+            name: cdp-agent
+            state: restarted
+      
+        - name: get key
+          shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
+        when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
