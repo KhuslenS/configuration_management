@@ -1,5 +1,5 @@
 ---
-  - hosts: localhost
+  - hosts: cyberkkk
     tasks:
     - name: Add repository
       yum_repository:
