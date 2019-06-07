@@ -68,30 +68,31 @@
       
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
-        when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "28"
+        when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "30"
         
 
 # this line is for centos 8   
-      - block:
-        - name: create r1soft
-          copy: 
-            src: r1soft.repo
-            dest: /etc/yum.repos.d/r1soft.repo
+#      - block:
+#        - name: create r1soft
+#          copy: 
+#            src: r1soft.repo
+#            dest: /etc/yum.repos.d/r1soft.repo
 
-        - name: Install r1soft agent
-          package: 
-            name: serverbackup-enterprise-agent
-            state: latest
-          notify: r1soft_INSTALLED
 
-        - name: start agent
-          systemd: 
-            name: sbm-agent
-            state: restarted
+#        - name: Install r1soft agent
+#          package: 
+#            name: serverbackup-enterprise-agent
+#            state: latest
+#          notify: r1soft_INSTALLED
+
+#       - name: start agent
+#          systemd: 
+#            name: sbm-agent
+#            state: restarted
       
-        - name: get key
-          shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
-        when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
+#        - name: get key
+#          shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
+#        when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
     
 
     handlers:
@@ -112,7 +113,7 @@
            state: restarted
 
         
-      - name: R1SOFT_INSTALLED_ON_centos8
-        systemd: 
-           name: sbm-agent
-           state: restarted
+#      - name: R1SOFT_INSTALLED_ON_centos8
+#        systemd: 
+#           name: sbm-agent
+#           state: restarted
