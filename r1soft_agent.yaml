@@ -17,6 +17,11 @@
             name: serverbackup-enterprise-agent
             state: latest
           notify: r1soft_INSTALLED
+          
+        - name: start agent
+          service: 
+            name: sbm-agent
+            state: restarted
 
         - name: get key
           shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
@@ -40,7 +45,7 @@
 
         - name: start agent
           service: 
-            name: cdp-agent
+            name: sbm-agent
             state: restarted
       
         - name: get key
@@ -63,7 +68,7 @@
 
         - name: start agent
           service: 
-            name: cdp-agent
+            name: sbm-agent
             state: restarted
       
         - name: get key
