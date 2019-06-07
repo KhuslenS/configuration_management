@@ -68,7 +68,7 @@
 
         - name: start agent
           service: 
-            name: cdp-agent
+            name: sbm-agent
             state: restarted
       
         - name: get key
