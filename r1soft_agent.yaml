@@ -108,7 +108,7 @@
         
       - name: R1SOFT_INSTALLED_ON_CENTOS6
         service: 
-           name: sdp-agent
+           name: cdp-agent
            state: restarted
 
       
