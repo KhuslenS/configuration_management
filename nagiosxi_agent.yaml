@@ -74,7 +74,7 @@
 #        name: ncpa_listener 
 #        state: restarted
 
-    - name: Install ncpa on AmaZon
+    - name: NCPA_AMAZON
       systemd:
         name: ncpa_listener
         state: restarted
