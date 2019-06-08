@@ -59,8 +59,10 @@
         path: /usr/local/ncpa/etc/ncpa.cfg
         regexp: "community_string = mytoken"
         line: "community_string = Huslentuguldur"
-
-#  handlers:
+  
+  
+  
+  handlers:
 #    - name: NCPA_CENTOS_6
 #      service:
 #        name: ncpa_listener
