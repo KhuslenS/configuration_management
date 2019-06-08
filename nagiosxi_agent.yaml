@@ -49,7 +49,7 @@
     - name: Install ncpa on AMAZON
       package:
         name: ncpa
-        state: present
+        state: latest
       notify: NCPA_AMAZON
 
     #This line changes string
