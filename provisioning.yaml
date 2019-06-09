@@ -7,6 +7,9 @@
     - name: Ping the server
       ping:
 
-- import_playbook: r1soft_agent.yaml
-- import_playbook: nagiosxi_agent.yaml
-- import_playbook: filebeat.yaml
+- name: Install r1soft agent
+  import_playbook: r1soft_agent.yaml
+- name: nagiosxi agent
+  import_playbook: nagiosxi_agent.yaml
+- name: filebeat
+  import_playbook: filebeat.yaml
