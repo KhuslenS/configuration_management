@@ -6,7 +6,9 @@
   tasks:
     - name: create repo on Centos6
       when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
-      shell: "rpm -Uvh http://repo.nagios.com/nagios/6/nagios-repo-6-3.el6.noarch.rpm"
+      package:
+        name: "http://repo.nagios.com/nagios/6/nagios-repo-6-3.el6.noarch.rpm"
+        state: latest
     
     - name: Install ncpa on Centos6
       package:
@@ -25,8 +27,9 @@
  
     - name: create repo on Centos7
       when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
-      shell: "rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"
-
+      package:
+        name: "http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"
+        state: latest
     - name: Install ncpa on Centos7
       package:
         name: ncpa
@@ -44,8 +47,9 @@
 
     - name: create repo on AMAZON
       when: ansible_distribution == "Amazon"
-      shell: "rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"
-
+      package:
+        name: "http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"
+        state: latest
     - name: Install ncpa on AMAZON
       package:
         name: ncpa
