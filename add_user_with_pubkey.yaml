@@ -6,9 +6,12 @@
   tasks:
     - name: add 1 user
       user: 
-        name: "{{user}}"
+        name: "{{item}}"
         generate_ssh_key: true
         state: present
+      with_items:
+        - "{{user1}"
+        - "{{user2}"
     - name: create authorized_key file
       file:
         path: "/home/{{user}}/.ssh/authorized_keys"
