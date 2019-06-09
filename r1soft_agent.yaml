@@ -16,7 +16,7 @@
           package: 
             name: serverbackup-enterprise-agent
             state: present
-          notify: r1soft_INSTALLED
+          notify: R1SOFT_INSTALLED_ON_CENTOS7
           
         - name: start agent
           service: 
@@ -41,7 +41,7 @@
           package: 
             name: serverbackup-enterprise-agent
             state: present
-          notify: r1soft_INSTALLED
+          notify: R1SOFT_INSTALLED_ON_CENTOS6
 
         - name: start agent
           service: 
