@@ -1,8 +1,6 @@
 ---
 - name: creates ec2 instances
   hosts: all
-  vars_files:
-    - ec2_vars
   tasks: 
     - name: create instances
       ec2:
