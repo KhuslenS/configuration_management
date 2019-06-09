@@ -18,4 +18,5 @@
 
     - name: add public key
       lineinfile:
-        path: 
+        path: "/home/{{user}]/.ssh/authorized_keys"
+        line: "{{line}}"
