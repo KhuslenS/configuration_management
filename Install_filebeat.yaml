@@ -4,20 +4,20 @@
   become: yes
   become_method: sudo
   tasks:
-    # - block: 
-    #   - name: Install filebeat repo on Centos6
-    #     shell: "curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.1.1-x86_64.rpm"
-    #   - name: Install from rpm
-    #     shell: "rpm -vi filebeat-7.1.1-x86_64.rpm"
-    #   when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
-    #   notify: FILEBEAT_CENTOS_6
+    - block: 
+      - name: Install filebeat repo on Centos6
+        shell: "curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.1.1-x86_64.rpm"
+      - name: Install from rpm
+        shell: "rpm -vi filebeat-7.1.1-x86_64.rpm"
+        notify: FILEBEAT_CENTOS_6
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
       
     - block:
       - name: Install filebeat repo on Centos7
         shell: "curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.1.1-x86_64.rpm"
       - name: Install from rpm
         shell: "rpm -vi filebeat-7.1.1-x86_64.rpm"
-      notify: FILEBEAT_CENTOS_7
+        notify: FILEBEAT_CENTOS_7
       when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
 
 
