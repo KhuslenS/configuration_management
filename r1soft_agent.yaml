@@ -15,7 +15,7 @@
         - name: Install r1soft agent
           package: 
             name: serverbackup-enterprise-agent
-            state: latest
+            state: present
           notify: r1soft_INSTALLED
           
         - name: start agent
@@ -40,7 +40,7 @@
         - name: Install r1soft agent
           package: 
             name: serverbackup-enterprise-agent
-            state: latest
+            state: present
           notify: r1soft_INSTALLED
 
         - name: start agent
@@ -64,7 +64,7 @@
 #        - name: Install r1soft agent
 #          package: 
 #            name: serverbackup-enterprise-agent
-#            state: latest
+#            state: present
 #          notify: r1soft_INSTALLED
 
 
@@ -89,7 +89,7 @@
 #        - name: Install r1soft agent
 #          package: 
 #            name: serverbackup-enterprise-agent
-#            state: latest
+#            state: present
 #          notify: r1soft_INSTALLED
 
 #       - name: start agent
