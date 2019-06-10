@@ -3,6 +3,7 @@
   hosts: localhost
   vars_file: ec2_vars
   tasks:
+    - name: create instances with ec2_vars
       ec2:
         key_name: "{{key_name}}"
         instance_type: "{{instance_type}}"
