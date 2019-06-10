@@ -7,6 +7,7 @@
     - name: Create intance for You
       ec2:
         name: "{{name}}"
+        instance_ids: i-0f65f39069392cc0499
         instance_type: "{{instance_type}}"
         image: "{{image}}"
         count: "{{count}}"
