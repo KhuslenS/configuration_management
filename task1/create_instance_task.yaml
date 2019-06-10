@@ -27,6 +27,6 @@
         line: "{{line}}"     
 
     - name: get instance id
-      ec2_remote_facts:
+      ec2_instance_facts:
         filters:
           instance-id:
