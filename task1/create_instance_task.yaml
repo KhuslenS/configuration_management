@@ -29,10 +29,18 @@
         line: "{{line}}"     
   
   
+    - name: copy instance id to another variable
+      debug: var={{ item.id }}
+      with_items:
+       - "{{ ec2.instances }}"
+      register: instanceid
 
 
+    
+    
+    
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{ ec2.instance.id }}"
+        instance_id: "{{ instanceid.instances }}"
         wait: no
         name: image
