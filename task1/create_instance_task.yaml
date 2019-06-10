@@ -29,6 +29,7 @@
     - name: get instance id
       ec2_instance_facts:
         instance_ids:
+        region: "{{region}}"
     
 
     - name: create image of instance
