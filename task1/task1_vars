@@ -1,4 +1,3 @@
-key_name: "{{key_name}}"
 instance_type: "{{instance_type}}"
 image: "{{image}}"
 count: "{{count}}"
