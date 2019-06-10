@@ -13,7 +13,9 @@
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
-    
+      register: ec2
+    - debug: 
+        msg: ec2
     - name: create authorized_key file
       file:
         path: "/home/centos/.ssh/authorized_keys"
@@ -26,9 +28,7 @@
         path: "/home/centos/.ssh/authorized_keys"
         line: "{{line}}"     
   
-    
-    - debug:
-        var=ec2
+  
 
 
     - name: create image of instance
