@@ -25,17 +25,13 @@
       lineinfile:
         path: "/home/centos/.ssh/authorized_keys"
         line: "{{line}}"     
-
-    - name: get instance id
-      local_action: instance_id
-      register: ec2
-    - debug:
-        msg: "{{ec2}}"
-
-
+      wait: yes
     
+    - debug:
+        var=ec2
+
 
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{item_instance.id}}" 
-        wait: no
+        instance_id: "{{ec2.instances[0].id}}" 
+        wait: yes
