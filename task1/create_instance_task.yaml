@@ -33,6 +33,6 @@
 
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{ec2.instance.id}}" 
+        instance_id: "{{ec2.instance[0].id}}" 
         wait: yes
         name: taskimage
