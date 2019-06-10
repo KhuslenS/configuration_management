@@ -28,7 +28,7 @@
 
     - name: get instance id
       ansible_ec2_instance_id:
-      region: "{{region}}"
+        region: "{{region}}"
       register: ec2
     - debug:
         msg: "{{ec2}}"
