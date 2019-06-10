@@ -3,7 +3,7 @@
   hosts: localhost
   tasks: 
   vars_prompt:
-    - name: ec2_vars
+    - name: ec2_var
       ec2:
         key_name: "{{key_name}}"
         instance_type: "{{instance_type}}"
