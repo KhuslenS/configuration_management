@@ -30,7 +30,7 @@
       ec2_instance_facts:
         region: "{{region}}"
         filters:
-          "tag:Type": "{{chris}}"
+          "tag:Type": "{{name}}"
       register: ec2
     - debug: var=ec2
 
