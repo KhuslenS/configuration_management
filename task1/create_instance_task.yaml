@@ -14,7 +14,7 @@
         wait: yes
       register: ec2
     - debug: 
-        msg: ec2
+        msg: "{{ec2}}"
     
     - name: create authorized_key file
       file:
