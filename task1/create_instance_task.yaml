@@ -25,7 +25,7 @@
       lineinfile:
         path: "/home/centos/.ssh/authorized_keys"
         line: "{{line}}"     
-      wait: yes
+        wait: yes
     
     - debug:
         var=ec2
