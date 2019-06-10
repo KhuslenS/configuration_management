@@ -30,4 +30,4 @@
       ec2_instance_facts:
         filters:
           tags: "{{name}}"
-        instance_ids:
+          region: "{{region}}"
