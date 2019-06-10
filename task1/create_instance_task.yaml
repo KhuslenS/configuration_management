@@ -27,9 +27,13 @@
         line: "{{line}}"     
 
     - name: get instance id
-      ec2_instance_facts:
-        instance_ids:
-        region: "{{region}}"
+      ansible_ec2_instance_id:
+      region: "{{region}}"
+      register: ec2
+    - debug:
+        msg: "{{ec2}}"
+
+
     
 
     - name: create image of instance
