@@ -1,0 +1,7 @@
+---
+- name: create instance , create image, copy image, launch machine on image
+  hosts: localhost
+  gather_facts: true
+  vars_prompt:
+    - name: task_vars
+      
