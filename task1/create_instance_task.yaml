@@ -6,7 +6,7 @@
   tasks:
     - name: Create intance for You
       ec2:
-        isntance_tags:
+        instance_tags:
           name: "{{name}}"
         instance_type: "{{instance_type}}"
         image: "{{image}}"
