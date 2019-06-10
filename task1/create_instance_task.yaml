@@ -2,7 +2,7 @@
 - name: create instance , create image, copy image, launch machine on image
   hosts: localhost
   gather_facts: true
-  vars_files: task1/task1_vars
+  vars_files: task1_vars
   tasks:
     - name: Create intance for You
       ec2:
