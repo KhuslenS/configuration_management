@@ -33,5 +33,5 @@
 
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{ec2.instances[0].id}}" 
+        instance_id: "{{ec2.instances.id}}" 
         wait: yes
