@@ -28,14 +28,8 @@
 
     - name: get instance id
       ec2_instance_facts:
-        region: "{{region}}"
-        filters:
-          instance_id:
-          #"tag:Type": "{{instance_name}}"
-      register: ec2
+        instance_ids:
     
-    - debug:
-        var: ec2
 
     - name: create image of instance
       ec2_ami:
