@@ -12,7 +12,17 @@
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
-        key_material: "{{key_material}}"      
+    - name: create authorized_key file
+      file:
+        path: "/home/centos/.ssh/authorized_keys"
+        mode: 0600
+        state: touch
+        owner: "centos"
+
+    - name: add public key
+      lineinfile:
+        path: "/home/centos/.ssh/authorized_keys"
+        line: "{{line}}"     
 
     - name: Create image for you
       ec2_instance_facts:
