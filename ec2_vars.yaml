@@ -1,7 +1,7 @@
 ---
 - name: creates ec2 instances
   hosts: localhost
-  vars_files: c2_vars
+  vars_files: ec2_vars
   tasks:
     - name: create instances with ec2_vars
       ec2:
