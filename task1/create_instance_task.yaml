@@ -30,11 +30,14 @@
       ec2_instance_facts:
         region: "{{region}}"
         filters:
-          "tag:Type": "{{instance_name}}"
+          instance_id:
+          #"tag:Type": "{{instance_name}}"
       register: ec2
-    - debug: var=ec2
+    
+    - debug:
+        var: ec2
 
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{item.instance_id}}" 
+        instance_id: "{{item_instance.id}}" 
         wait: no
