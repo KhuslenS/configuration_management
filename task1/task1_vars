@@ -1,4 +1,4 @@
-name: "chris"
+instance_name: "chris"
 instance_type: "t2.micro"
 image: "ami-01ed306a12b7d1c96"
 count: "1"
