@@ -2,6 +2,7 @@
 - name: creates ec2 instances
   hosts: localhost
   tasks: 
+  vars_prompt:
     - name: ec2_vars
       ec2:
         key_name: "{{key_name}}"
