@@ -28,6 +28,7 @@
 
     - name: Create image for you
       ec2_instance_facts:
+        region: "{{region}}"
         filters:
           tag: "{{name}}"
           instance_ids:
