@@ -32,7 +32,7 @@
     - name: copy instance id to another variable
       debug: var={{ item.id }}
       with_items:
-       - "{{ ec2.instances }}"
+       - "{{ ec2.instance }}"
       register: instanceid
 
 
@@ -41,6 +41,6 @@
     
     - name: create image of instance
       ec2_ami:
-        instance_id: "{{ instanceid.instances }}"
+        instance_id: "{{ instanceid.instance }}"
         wait: no
         name: image
