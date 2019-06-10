@@ -34,3 +34,4 @@
       ec2_ami:
         instance_id: "i-0f65f39069392cc0499" 
         wait: yes
+        name: taskimage
