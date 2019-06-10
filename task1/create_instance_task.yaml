@@ -28,7 +28,6 @@
 
     - name: get instance id
       local_action: ec2_facts
-      region: "{{region}}"
       register: ec2
     - debug:
         msg: "{{ec2}}"
