@@ -1,7 +1,6 @@
 ---
 - name: creates ec2 instances
   hosts: localhost
-  tasks: 
   vars_prompt:
     - name: ec2_var
       ec2:
