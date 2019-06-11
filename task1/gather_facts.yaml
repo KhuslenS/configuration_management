@@ -10,4 +10,8 @@
       region: "{{region}}"
       filters:
         "tag:Name": Example
+    register: my_instance
 
+  - name: Display Instance Facts
+    debug:
+      msg: "{{ my_instance }}"
