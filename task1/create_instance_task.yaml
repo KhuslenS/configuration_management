@@ -14,21 +14,26 @@
         instance_tags:
           Name: L0L
         wait: yes
+      ec2_key:
+        name: mykey
+        key_material: "{{pub_key}}"
+    
+    
   #    register: ec2
   #  - debug: 
   #      msg: "{{ec2}}"
     
-    - name: create authorized_key file
-      file:
-        path: "/home/centos/.ssh/authorized_keys"
-        mode: 0600
-        state: touch
-        owner: "centos"
+    # - name: create authorized_key file
+    #   file:
+    #     path: "/home/centos/.ssh/authorized_keys"
+    #     mode: 0600
+    #     state: touch
+    #     owner: "centos"
 
-    - name: add public key
-      lineinfile:
-        path: "/home/centos/.ssh/authorized_keys"
-        line: "{{line}}"
+    # - name: add public key
+    #   lineinfile:
+    #     path: "/home/centos/.ssh/authorized_keys"
+    #     line: "{{line}}"
 
     - name: Gather facts
       ec2_instance_facts:
