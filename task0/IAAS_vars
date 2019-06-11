@@ -1,0 +1,7 @@
+
+        #creating a keypair in different regions
+            
+key_material: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPEGbaCaKREQDHuMNTYnBXcoU9hJSw469K/v1+1dIkX1UseASvcBReLLS4RRnfNMnhzD9QPZbn4GbjTgTucapEiv0gon2DBP/UGJPFzgKBl0Ud1zJFThgre5ZM/6ht9scVEWAh4+pA7sYJFM9H/NzlbsmgscJxlcXSu5rDkR5febPTJlcp3S1jQZStmHZaQhO9N6N9ixryDdjfX1uqqjOULrrwzcPpsy3ktVji3XdvoO/lCkU3/wjKhaItXSKOdzc8CwlF1T+rGDtmmlThw/CGE5XRF3/G60momaYwZMAKZpG7nDWzWyB48so0+pWK8+6By7GBcDGvc8TxH355zycJ centos@ansible-tower"
+key_region_1: "us-west-2"
+key_region_2: "us-east-1" 
+key_region_3: "us-east-2"

@@ -1,0 +1,17 @@
+---
+- name: this will build whole infrastructure for you
+  hosts: localhost
+  gather_facts: yes
+  vars_files: IAAS_vars
+  tasks:
+    - name: create ssh key in different regions
+      ec2_key:
+        name: key
+        key_material: "{{key_material}}"
+        region: "{{ item }}"
+      loop:
+        - "{{key_region_1}}"
+        - "{{key_region_2}}"
+        - "{{key_region_3}}"
+        
+    
