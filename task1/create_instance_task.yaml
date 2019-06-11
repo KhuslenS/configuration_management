@@ -52,5 +52,13 @@
         wait: yes
         name: image
 
-
+    - name: copy image to another region
+      ec2_ami_copy:
+        source_region: "{{region}}"
+        region: "{{ami_copy_region}}"
+        source_image_id: "{{my_instance.instances[0].instance_ami}}"
+        name: copy_ami
+        description: latest_copied_ami
+        encrypted: yes
+        
 
