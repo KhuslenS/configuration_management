@@ -1,9 +1,21 @@
+   
+   
+   #Creating ssh key in that specific region
+  
+key_name: ""            #give a name for your key-pair
+public_key: ""          #put your public key
+region: ""              #region where you want to create key 
+
+
+
+
+ #Create instance and image  
+
 name: ""                  #instance_tag_for_your_instance
 instance_type: ""         #size
 image: ""                 #default_ami
 count: ""                 #how_many_instances_you_need
-vpc_subnet_id: ""         #default_subnet
-region: ""                #region_you_want
+vpc_subnet_id: ""         #default_subnet               
 key_name: ""              #your_attached_public_key_name
 
 

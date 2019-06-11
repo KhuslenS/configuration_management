@@ -4,6 +4,7 @@
   gather_facts: yes
   vars_files: IAAS_vars
   tasks:
+    
     - name: create ssh key in different regions
       ec2_key:
         name: key

@@ -4,6 +4,14 @@
   gather_facts: true
   vars_files: task1_vars
   tasks:
+
+    - name: Create ssh keypair in region
+      ec2_key:
+        name: "{{key_name}}"
+        key_material: "{{public_key}}"
+        region: "{{region}}"
+
+        
     - name: Create instance for You
       ec2:
         instance_type: "{{instance_type}}"
