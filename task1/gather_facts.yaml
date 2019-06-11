@@ -14,4 +14,6 @@
 
   - name: Display Instance Facts
     debug:
-      msg: "{{ my_instance_instance.id }}"
+      msg: "{{ item }}"
+    with_items:
+      - "{{my_instance.instances.id}}"
