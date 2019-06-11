@@ -7,16 +7,14 @@
     - name: Create intance for You
       ec2:
         instance_type: "{{instance_type}}"
+        key_name: "{{key_name}}"
         image: "{{image}}"
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
         instance_tags:
-          Name: L0L
+          Name: "{{name}}"
         wait: yes
-      ec2_key:
-        name: mykey
-        key_material: "{{pub_key}}"
     
     
   #    register: ec2
@@ -39,7 +37,7 @@
       ec2_instance_facts:
        region: "{{region}}"
        filters:
-         "tag:Name": L0L
+         "tag:Name": "{{name}}"
       register: my_instance
 
     - name: Display Instance Facts
