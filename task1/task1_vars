@@ -11,4 +11,4 @@ line: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPEGbaCaKREQDHuMNTYnBXcoU9hJSw469K/
 # New Region's Information
 copy_ami_region: "us-east-1"
 new_vpc_subnet_id: "subnet-c28b61a4" 
-count: 1
+new_count: "1"

@@ -64,7 +64,7 @@
     - name: Launch pre-configured instance in another region
       ec2:
         image: "{{my_instance.instances[0].image_id}}"
-        count: "{{count}}"
+        count: "{{new_count}}"
         vpc_subnet_id: "{{new_vpc_subnet_id}}"
         region: "{{copy_ami_region}}"
         instance_tags:
