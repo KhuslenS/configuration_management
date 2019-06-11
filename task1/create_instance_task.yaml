@@ -40,5 +40,6 @@
 
     - name: Gather facts
       ec2_instance_facts:
+        region: "{{region}}"
         filters:
           "tag:Name": Example
