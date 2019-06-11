@@ -52,7 +52,10 @@
         instance_id: "{{ my_instance.instances[0].instance_id  }}"
         wait: yes
         name: Cool
-      register: my_awesome_ami
+  
+
+
+
 
     - name: copy image to another region
       ec2_ami_copy:

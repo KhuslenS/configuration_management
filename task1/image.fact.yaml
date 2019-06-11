@@ -1,0 +1,16 @@
+---
+- name: create instance , create image, copy image, launch machine on image
+  hosts: localhost
+  gather_facts: true
+  vars_files: task1_vars
+  tasks:
+    - name: gather image fact
+      ec2_ami_facts:
+        region: "{{region}}"
+        filters:
+        "tag:Name": Cool
+      register: my_awesome_ami
+
+    - name: Display image facts
+      debug:
+        msg: "{{my_awesome_ami}}"
