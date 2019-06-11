@@ -1,0 +1,10 @@
+---
+- name: This will delete s3 bucket and all contents with your help, Thank you
+  hosts: localhost
+  gather_facts:
+  tasks:
+    - name: this will remove bucket with contents
+      aws_s3:
+        bucket: "{{delete_bucket_name}}"
+        mode: delete
+        

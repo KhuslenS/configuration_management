@@ -1,0 +1,10 @@
+---
+- name: This will create s3 bucket with your help, Thank you
+  hosts: localhost
+  gather_facts: yes
+  tasks: 
+    - name: create s3 bucket
+      aws_s3:
+        bucket: "{{create_bucket_name}}"
+        mode: create
+        permission: "{{permission}}"
