@@ -11,10 +11,12 @@
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
+        tags:
+          Name: Example
         wait: yes
-      register: ec2
-    - debug: 
-        msg: "{{ec2}}"
+  #    register: ec2
+  #  - debug: 
+  #      msg: "{{ec2}}"
     
     - name: create authorized_key file
       file:
@@ -29,11 +31,14 @@
         line: "{{line}}"     
   
  
-    - name: create image of instance
-      ec2_ami:
-        region: us-west-2
-        instance_id: "{{ item.id }}"
-        wait: yes
-        name: image
-      with_items:
-        - ec2.instance
+  #  - name: create image of instance
+  #    ec2_ami:
+  #      region: us-west-2
+  #      instance_id: "{{ ec2_instance.id }}"
+  #      wait: yes
+  #      name: image
+
+    - name: Gather facts
+      ec2_instance_facts:
+        filters:
+          "tag:Name": Example
