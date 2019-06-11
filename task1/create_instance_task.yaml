@@ -42,13 +42,13 @@
         msg: "{{ item }}"
       with_items:
        - "{{my_instance.instances[0].instance_id}}"
-      register: id
+      
     
  
     - name: create image of instance
       ec2_ami:
         region: us-west-2
-        instance_id: "{{ id }}"
+        instance_id: "{{ my_instance.instances[0].instance_id  }}"
         wait: yes
         name: image
 
