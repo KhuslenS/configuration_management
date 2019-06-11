@@ -52,7 +52,17 @@
         instance_id: "{{ my_instance.instances[0].instance_id  }}"
         wait: yes
         name: Cool
-  
+
+    - name: gather image fact
+      ec2_ami_facts:
+        region: "{{region}}"
+        filters:
+          name: Cool
+      register: my_awesome_ami
+
+    - name: Display image facts
+      debug:
+        msg: "{{ my_awesome_ami.images[0].image_id }}"
 
 
 
@@ -61,14 +71,14 @@
       ec2_ami_copy:
         source_region: "{{region}}"
         region: "{{copy_ami_region}}"
-        source_image_id: "{{my_awesome_ami[0].image_id}}"
+        source_image_id: "{{ my_awesome_ami.images[0].image_id }}"
         name: copy_ami
         description: latest_copied_ami
         encrypted: yes
 
     - name: Launch pre-configured instance in another region
       ec2:
-        image: "{{my_awesome_ami[0].image_id}}"
+        image: "{{ my_awesome_ami.images[0].image_id }}"
         count: "{{new_count}}"
         vpc_subnet_id: "{{new_vpc_subnet_id}}"
         region: "{{copy_ami_region}}"
