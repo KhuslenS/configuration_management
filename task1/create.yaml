@@ -1,0 +1,13 @@
+---
+- name: create instance , create image, copy image, launch machine on image
+  hosts: localhost
+  gather_facts: true
+  vars_files: task1_vars
+  tasks:
+
+    - name: create image of instance
+      ec2_ami:
+        region: us-west-2
+        instance_id: "i-00fcb62b3e6ab4fa4"
+        wait: yes
+        name: image
