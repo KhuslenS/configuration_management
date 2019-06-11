@@ -12,7 +12,7 @@
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
         instance_tags:
-          Name: Example
+          Name: "{{name}}"
         wait: yes
   #    register: ec2
   #  - debug: 
@@ -34,7 +34,7 @@
       ec2_instance_facts:
        region: "{{region}}"
        filters:
-         "tag:Name": Example
+         "tag:Name": "{{name}}"
       register: my_instance
 
     - name: Display Instance Facts
@@ -60,5 +60,15 @@
         name: copy_ami
         description: latest_copied_ami
         encrypted: yes
+
+    - name: Launch pre-configured instance in another region
+      ec2:
+        image: "{{my_instance.instances[0].image_id}}"
+        count: "{{count}}"
+        vpc_subnet_id: "{{new_vpc_subnet_id}}"
+        region: "{{copy_ami_region}}"
+        instance_tags:
+          Name: "{{name}}"
+        wait: yes
 
 
