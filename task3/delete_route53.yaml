@@ -1,0 +1,9 @@
+--- 
+- name: this deletes route53 (DNS) record from your route53 services
+  route53: 
+      state: absent
+      zone: "{{zone}}"
+      record: "{{record}}"
+      ttl: "{{ttl}}"
+      value: "{{value}}"
+      type: A
