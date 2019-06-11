@@ -11,7 +11,7 @@
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
-        tags:
+        instance_tags:
           Name: Example
         wait: yes
   #    register: ec2
