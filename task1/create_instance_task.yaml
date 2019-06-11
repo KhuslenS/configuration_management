@@ -1,10 +1,10 @@
 ---
-- name: create instance , create image, copy image, launch machine on image
+- name: create instance , create image, copy image to other region, launch machine on image
   hosts: localhost
   gather_facts: true
   vars_files: task1_vars
   tasks:
-    - name: Create intance for You
+    - name: Create instance for You
       ec2:
         instance_type: "{{instance_type}}"
         key_name: "{{key_name}}"
