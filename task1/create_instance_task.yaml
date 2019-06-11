@@ -55,7 +55,7 @@
     - name: copy image to another region
       ec2_ami_copy:
         source_region: "{{region}}"
-        region: "{{ami_copy_region}}"
+        region: "{{copy_ami_region}}"
         source_image_id: "{{my_instance.instances[0].image_id}}"
         name: copy_ami
         description: latest_copied_ami
