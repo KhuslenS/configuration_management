@@ -16,4 +16,4 @@
     debug:
       msg: "{{ item }}"
     with_items:
-      - "{{my_instance.id}}"
+      - "{{my_instance.instances.id}}"
