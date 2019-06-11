@@ -1,0 +1,8 @@
+---
+- name: It will take a snapshot of your volume
+  tasks:
+    - ec2_snapshot:
+        volume_id: "{{volume_id}}"
+        description: "{{description}}"
+        snapshot_tags:
+            frequency: "{{frequency}}"
