@@ -41,7 +41,7 @@
       debug:
         msg: "{{ item }}"
       with_items:
-       - "{{my_instance.[0].instances_id}}"
+       - "{{my_instance[0].instances_id}}"
       register: "instance_id"
  
     - name: create image of instance
