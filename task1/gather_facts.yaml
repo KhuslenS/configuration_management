@@ -14,4 +14,4 @@
 
   - name: Display Instance Facts
     debug:
-      msg: "{{ my_instance }}"
+      msg: "{{ my_instance.id }}"
