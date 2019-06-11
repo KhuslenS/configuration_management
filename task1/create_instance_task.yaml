@@ -28,18 +28,27 @@
     - name: add public key
       lineinfile:
         path: "/home/centos/.ssh/authorized_keys"
-        line: "{{line}}"     
-  
- 
-  #  - name: create image of instance
-  #    ec2_ami:
-  #      region: us-west-2
-  #      instance_id: "{{ ec2_instance.id }}"
-  #      wait: yes
-  #      name: image
+        line: "{{line}}"
 
     - name: Gather facts
       ec2_instance_facts:
-        region: "{{region}}"
-        filters:
-          "tag:Name": Example
+       region: "{{region}}"
+       filters:
+         "tag:Name": Example
+      register: my_instance
+
+    - name: Display Instance Facts
+      debug:
+        msg: "{{ item }}"
+      with_items:
+       - "{{my_instance[0].instances_id}}"
+      register: "instance_id"
+ 
+    - name: create image of instance
+      ec2_ami:
+        region: us-west-2
+        instance_id: "{{ instance_id }}"
+        wait: yes
+        name: image
+
+
