@@ -12,7 +12,7 @@
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
         instance_tags:
-          Name: "{{name}}"
+          Name: Example
         wait: yes
   #    register: ec2
   #  - debug: 
@@ -34,7 +34,7 @@
       ec2_instance_facts:
        region: "{{region}}"
        filters:
-         "tag:Name": "{{name}}"
+         "tag:Name": Example
       register: my_instance
 
     - name: Display Instance Facts
