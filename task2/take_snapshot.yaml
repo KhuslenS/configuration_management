@@ -1,7 +1,10 @@
 ---
 - name: It will take a snapshot of your volume
+  hosts: localhost
+  gather_facts: yes
   tasks:
-    - ec2_snapshot:
+    - name: this will use volume_id
+      ec2_snapshot:
         volume_id: "{{volume_id}}"
         description: "{{description}}"
         snapshot_tags:

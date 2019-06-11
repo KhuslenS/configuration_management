@@ -1,0 +1,13 @@
+---
+- name: This will add role on your AWS with your help, Thank you
+  iam:
+    iam_type: role
+    name: "{{role_name}}"
+    state: present
+    trust_policy:
+      Version: "{{role_policy_version}}"
+      Statement:
+      - Action: "{{role_action}}"
+        Effect: allow
+        Principal:
+          Service: "{{role_service}}"

@@ -1,0 +1,19 @@
+---
+- name: This will add group on AWS with your help, Thank you
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: add group
+      iam:
+        iam_type: group
+        name: "{{group_name}}"
+        state: present
+      register: group
+    
+    - name: add user to current group
+      iam:
+        iam_type: user
+        name: "{{group_user_name}}"
+        state: present
+        groups: "{{group_name}}"
+       

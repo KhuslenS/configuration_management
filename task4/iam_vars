@@ -1,0 +1,21 @@
+   #create user             #comment           #examples
+user_name: ""
+managed_policy: ""          #give a policy    > (arn:aws:iam::aws:policy/AmazonSNSFullAccess)
+user_password: ""           #give a strong user_password
+
+
+    #delete user
+delete_user_name: ""
+
+
+    #add group
+group_name: ""              #give a name for your group
+group_user_name: ""         #put name of existing user that is gonna belong this group
+
+
+
+    #create role
+role_name: ""               #give a name for you role
+role_policy_version: ""     #your role has a policy, and it has a version   >   "2012-10-17'
+role_action: ""             #choose the action for your role     >      sts:AssumeRole
+role_service: ""            #describe what service you want to user >   lambda.amazonaws.com

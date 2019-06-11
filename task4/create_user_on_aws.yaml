@@ -1,0 +1,14 @@
+---
+- name: this creates user on AWS with your help , Thank you
+  hosts: localhost
+  gather_facts: yes
+  tasks: 
+    - name: this will create user 
+      iam:
+        iam_type: user
+        name: "{{user_name}}"
+        state: present
+        managed_policy: 
+          - "{{managed_policy}}"
+        password: "{{user_password}}"
+        access_key_state: create
