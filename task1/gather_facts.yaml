@@ -16,4 +16,4 @@
     debug:
       msg: "{{ item }}"
     with_items:
-      - "{{my_instance.instances.id}}"
+      - "{{my_instances|selectattr('running') |map(attribute='id')}}"
