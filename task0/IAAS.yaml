@@ -28,7 +28,7 @@
       debug:
         msg: "{{item}}"
       with_items:
-      - "{{vpc.vpc[0]_id}}"
+      - "{{vpc.vpc.id}}"
         
 
 
