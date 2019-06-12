@@ -51,7 +51,7 @@
     - name: create subnet c
       ec2_vpc_subnet:
         state: present
-        region: "{{vpc_region"
+        region: "{{vpc_region}}"
         vpc_id: "{{vpc.vpc.id}}"
         cidr: "{{subnet_cidr_c}}"
         az: "{{az_c}}"
