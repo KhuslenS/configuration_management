@@ -16,7 +16,6 @@
         - "{{key_region_3}}"
         
     - name: create vpc in region
-
       ec2_vpc_net:
         name: "vpc_name"
         cidr_block: "{{vpc_cidr_block}}"
@@ -25,18 +24,61 @@
           module: "{{environment_name}}"
       register: vpc
       
-    - name: display vpc facts
-      debug:
-        msg: "{{item}}"
-      with_items:
-      - "{{vpc}}"
+    # - name: display vpc facts
+    #   debug:
+    #     msg: "{{item}}"
+    #   with_items:
+    #   - "{{vpc}}"
+        
+
+
+    - name: create subnet a
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: "{{vpc.vpc[0].vpc_id}}"
+        cidr: "{{subnet_cidr_a}}"
+        az: "{{az_a}}"
+
+    - name: create subnet b
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: "{{vpc.vpc[0].vpc_id}}"
+        cidr: "{{subnet_cidr_b}}"
+        az: "{{az_b}}"
+
+    - name: create subnet c
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: "{{vpc.vpc[0].vpc_id}}"
+        cidr: "{{subnet_cidr_c}}"
+        az: "{{az_c}}"
+    
+    - name: create internet gateway
+      ec2_vpc_igw:
+        vpc_id: "{{vpc.vpc[0].vpc_id}}"
+        state: present
+      register: igw
+
+   
         
 
 
 
-      # ec2_vpc_subnet:
-      #   state: present
-      #   vpc_id: 
+    - name: Set up public subnet route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpc.vpc[0].vpc_id}}"
+        region: "{{vpc_region}}"
+        tags:
+          Name: Public
+        subnets:
+          - "{{ subnet_cidr_a }}"
+          - "{{ subnet_cidr_b }}"
+          - "{{ subnet_cidr_c }}"
+        routes:
+          - dest: 0.0.0.0/0
+      gateway_id: "{{ igw.igw[0].igw_id }}"
+      
+
         
       
 
