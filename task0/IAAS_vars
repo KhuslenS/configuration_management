@@ -1,25 +1,35 @@
+           
+#you should fill                          #comment                         >       #examples
 
         #creating a keypair in different regions
             
-key_material: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPEGbaCaKREQDHuMNTYnBXcoU9hJSw469K/v1+1dIkX1UseASvcBReLLS4RRnfNMnhzD9QPZbn4GbjTgTucapEiv0gon2DBP/UGJPFzgKBl0Ud1zJFThgre5ZM/6ht9scVEWAh4+pA7sYJFM9H/NzlbsmgscJxlcXSu5rDkR5febPTJlcp3S1jQZStmHZaQhO9N6N9ixryDdjfX1uqqjOULrrwzcPpsy3ktVji3XdvoO/lCkU3/wjKhaItXSKOdzc8CwlF1T+rGDtmmlThw/CGE5XRF3/G60momaYwZMAKZpG7nDWzWyB48so0+pWK8+6By7GBcDGvc8TxH355zycJ centos@ansible-tower"
-key_region_1: "us-west-2"
-key_region_2: "us-east-1" 
-key_region_3: "us-east-2"
+key_name: ""               #give a name for your key-pair
+key_material: ""           #attach your public ip (id_rsa.pub)
+key_region_1: ""           #region you want to create key-pair   
+key_region_2: ""           #region you want to create key-pair 
+key_region_3: ""           #region you want to create key-pair
 
         #create vpc in 1 specific region
 
-vpc_name: "test"
-vpc_cidr_block: "10.0.0.0/16"
-environment_name: "chris"
-vpc_region: "us-west-2"
-subnet_cidr_a: "10.0.1.0/24"
-subnet_cidr_b: "10.0.2.0/24"
-subnet_cidr_c: "10.0.3.0/24"
-az_a: "us-west-2a" 
-az_b: "us-west-2b"
-az_c: "us-west-2c"
+vpc_name: ""               #give a name for your VPC
+vpc_cidr_block: ""         #cidr_block for you VPC         >       (10.0.0.0/16)
+environment_name: ""       #give a name for you environment
+vpc_region: ""             #region that you want to create VPC  >  (us-west-2)
+subnet_cidr_a: ""          #subnet ip for your VPC          >      (10.0.1.0/24)  
+subnet_cidr_b: ""          #subnet ip for your VPC          >      (10.0.1.0/24)
+subnet_cidr_c: ""          #subnet ip for your VPC          >      (10.0.1.0/24)
+az_a: ""                   #avialability zone for your VPC    >    (us-west-2a)
+az_b: ""                   #avialability zone for your VPC    >    (us-west-2b)
+az_c: ""                   #avialability zone for your VPC    >    (us-west-2c)
 
 
          #create security group
-security_group_name: "LoL"
-description: "new group"
+security_group_name: ""    #give a name for your security group
+description: ""            #discription about security group
+
+
+
+         #create ec2 instance
+instance_type: ""                #what type of instance you want    >   (t2.micro)
+image: ""                        #what ami you want                 >   (ami-01ed306a12b7d1c96)
+count: ""                        #how many instances you want to launch

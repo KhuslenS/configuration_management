@@ -7,7 +7,7 @@
     
     - name: create ssh key in different regions
       ec2_key:
-        name: key
+        name: "{{key_name}}"
         key_material: "{{key_material}}"
         region: "{{ item }}"
       loop:
@@ -111,3 +111,19 @@
             from_port: 22
             to_port: 22
             cidr_ip: 0.0.0.0/0
+
+    - name: create ec2 instance with above things
+      ec2:
+        key_name: "{{key_name}}"
+        group: "{{security_group_name}}"
+        instance_type: "{{instance_type}}"
+        image: "{{image}}"
+        wait: true
+        count: "{{count}}"
+        region: "{{vpc_region}}"
+        vpc_subnet_id: "{{item}}"
+        assign_public_ip: yes
+      loop:
+        - "{{cidr_subnet_a}}"
+        - "{{cidr_subnet_b}}"
+        - "{{cidr_subnet_c}}"
