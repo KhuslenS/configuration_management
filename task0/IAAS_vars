@@ -8,6 +8,7 @@ key_region_3: "us-east-2"
 
         #create vpc in 1 specific region
 
+vpc_name: "test"
 vpc_cidr_block: "10.0.0.0/16"
 environment_name: "chris"
 vpc_region: "us-west-2"
