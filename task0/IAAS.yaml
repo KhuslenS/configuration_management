@@ -17,7 +17,7 @@
         
     - name: create vpc in region
       ec2_vpc_net:
-        name: "vpc_name"
+        name: "{{vpc_name}}"
         cidr_block: "{{vpc_cidr_block}}"
         region: "{{vpc_region}}"
         tags: 
