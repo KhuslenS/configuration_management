@@ -5,6 +5,8 @@
   tasks:
     - name: this will use volume_id
       ec2_snapshot:
+        region: "{{region}}"
+        ec2_url: "{{ec2_url}}"
         volume_id: "{{volume_id}}"
         description: "{{description}}"
         snapshot_tags:
