@@ -65,22 +65,30 @@
 
    
         
+    - name: display igw facts
+      debug:
+        msg: "{{item}}"
+      with_items:
+      - "{{igw}}"
 
 
 
-    - name: Set up public subnet route table
-      ec2_vpc_route_table:
-        vpc_id: "{{vpc.vpc.id}}"
-        region: "{{vpc_region}}"
-        tags:
-          Name: Public
-        subnets:
-          - "{{ subnet_cidr_a }}"
-          - "{{ subnet_cidr_b }}"
-          - "{{ subnet_cidr_c }}"
-        routes:
-          - dest: 0.0.0.0/0
-            gateway_id: "{{ igw.internet_gateway_id }}"
+
+
+
+    # - name: Set up public subnet route table
+    #   ec2_vpc_route_table:
+    #     vpc_id: "{{vpc.vpc.id}}"
+    #     region: "{{vpc_region}}"
+    #     tags:
+    #       Name: Public
+    #     subnets:
+    #       - "{{ subnet_cidr_a }}"
+    #       - "{{ subnet_cidr_b }}"
+    #       - "{{ subnet_cidr_c }}"
+    #     routes:
+    #       - dest: 0.0.0.0/0
+    #         gateway_id: "{{ igw.internet_gateway_id }}"
       
 
         
