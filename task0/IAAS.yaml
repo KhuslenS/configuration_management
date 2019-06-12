@@ -80,7 +80,7 @@
           - "{{ subnet_cidr_c }}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{ igw.igw.id }}"
+            gateway_id: "{{ igw.internet_gateway_id }}"
       
 
         
