@@ -25,8 +25,18 @@
           module: "{{environment_name}}"
       register: vpc
       
+    - name: display vpc facts
+      debug:
+        msg: "{{item}}"
+      with_items:
+      - "{{vpc}}"
+        
+
+
+
       # ec2_vpc_subnet:
       #   state: present
+      #   vpc_id: 
         
       
 
