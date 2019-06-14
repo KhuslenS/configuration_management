@@ -89,13 +89,9 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ igw.gateway_id }}"
+
       
-
-        
-      
-
-
-    
+         
     - name: create security group
       ec2_group:
         name: "{{security_group_name}}"
