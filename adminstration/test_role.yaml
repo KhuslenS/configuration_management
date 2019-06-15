@@ -1,0 +1,7 @@
+--- 
+- name: test playbook for the role
+  hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - package:
