@@ -4,7 +4,6 @@
   vars_files: 
     - docker.vars
   tasks: 
-
     - name: Deploy instance
       ec2:
       key_name: "{{key_name}}"
