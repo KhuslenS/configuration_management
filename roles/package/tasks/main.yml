@@ -6,7 +6,3 @@
     state: present
     
   
-- name: wget install
-  package:
-    name: wget
-    state: present
