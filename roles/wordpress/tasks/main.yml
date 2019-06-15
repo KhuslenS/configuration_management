@@ -2,7 +2,6 @@
 - name: Installs wordpress
   become : yes
   become_user: root
-  hosts: localhost
   tasks:
    - name : Install necessary packages
      package:
