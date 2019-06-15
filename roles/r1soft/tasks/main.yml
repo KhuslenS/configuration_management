@@ -2,7 +2,7 @@
 - block:  
   - name: create r1soft
     copy: 
-      src: r1soft.repo
+      src: files/r1soft.repo
       dest: /etc/yum.repos.d/r1soft.repo
 
   - name: Install r1soft agent
