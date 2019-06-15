@@ -3,7 +3,7 @@
   become : yes
   become_user: root
   tasks:
-   - name : Install necessary packages
+   - name: Install necessary packages
      package:
         name : "{{item}}"
         state: latest
@@ -39,7 +39,7 @@
        url: "https://wordpress.org/latest.tar.gz"
        dest: /tmp/
     
-   - name : Unzip wordpress file
+   - name: Unzip wordpress file
      unarchive:
        src: "/tmp/wordpress-5.2.1.tar.gz"
        dest: "/var/www/html/"
@@ -47,7 +47,7 @@
      become: yes
      become_method: sudo
 
-   - name :  Move files to html folder
+   - name:  Move files to html folder
      shell: "mv /var/www/html/wordpress/*  /var/www/html/"
      become: yes
      become_method: sudo
