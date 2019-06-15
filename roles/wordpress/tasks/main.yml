@@ -1,5 +1,5 @@
 ---
-- name : Installs wordpress
+- name: Installs wordpress
   become : yes
   become_user: root
   hosts: localhost
