@@ -1,6 +1,5 @@
 ---
 - name : Installs wordpress
-  hosts: cyberkkk
   become : yes
   become_method : sudo
   tasks:
