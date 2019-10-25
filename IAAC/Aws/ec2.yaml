@@ -11,12 +11,12 @@
         vpc_subnet_id: subnet-929b8ec8
         region: us-west-2
         assign_public_ip: yes
-    - name: create instance (Debian)
-      ec2:
-        key_name: Ansible-Tower
-        instance_type: t2.micro
-        image: ami-070fdf86f8679add0
-        count: 1
-        vpc_subnet_id: subnet-929b8ec8
-        region: us-west-2
-        assign_public_ip: yes
+    # - name: create instance (Debian)
+    #   ec2:
+    #     key_name: Ansible-Tower
+    #     instance_type: t2.micro
+    #     image: ami-070fdf86f8679add0
+    #     count: 1
+    #     vpc_subnet_id: subnet-929b8ec8
+    #     region: us-west-2
+    #     assign_public_ip: yes
